@@ -1,4 +1,4 @@
-# PresenceLock
+# DevIsMIA
 
 Locks your Mac when nobody is in front of the camera for 10–60 seconds (default 20).
 
