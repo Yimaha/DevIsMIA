@@ -5,9 +5,11 @@ cd "$(dirname "$0")"
 mkdir -p build/PresenceLock.app/Contents/MacOS build/PresenceLock.app/Contents/Resources dist/PresenceLock
 cp Info.plist build/PresenceLock.app/Contents/
 cp AppIcon.icns build/PresenceLock.app/Contents/Resources/
-for arch in arm64 x86_64; do
-    swiftc -O -target "$arch-apple-macos14.0" -o "build/PresenceLock-$arch" Sources/*.swift
-done
+echo "==> [1/3] Compiling for Apple Silicon Macs (can take a minute)..."
+swiftc -O -target arm64-apple-macos14.0 -o build/PresenceLock-arm64 Sources/*.swift
+echo "==> [2/3] Compiling for Intel Macs (can take a minute)..."
+swiftc -O -target x86_64-apple-macos14.0 -o build/PresenceLock-x86_64 Sources/*.swift
+echo "==> [3/3] Signing and packaging..."
 lipo -create -output build/PresenceLock.app/Contents/MacOS/PresenceLock build/PresenceLock-arm64 build/PresenceLock-x86_64
 codesign --force --sign - build/PresenceLock.app
 

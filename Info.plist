@@ -22,5 +22,9 @@
     <true/>
     <key>NSCameraUsageDescription</key>
     <string>PresenceLock uses the camera to check that you are at your Mac and locks it when you leave. Images never leave this Mac.</string>
+    <key>NSLocationUsageDescription</key>
+    <string>PresenceLock reads only the name of your Wi-Fi network, to apply the on/off default you saved for it. Your location is never used.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>PresenceLock reads only the name of your Wi-Fi network, to apply the on/off default you saved for it. Your location is never used.</string>
 </dict>
 </plist>
